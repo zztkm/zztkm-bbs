@@ -1,2 +1,5 @@
+name = "zztkm-bbs"
+compatibility_date = "2023-04-20"
+
 [build]
 command = "make build"

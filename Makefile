@@ -6,14 +6,11 @@ dev:
 build:
 	mkdir -p dist
 	tinygo build -o ./functions/api/app.wasm -target wasm ./main.go
+	npx pnpm run build
 
 .PHONY: publish
-publish:
-	wrangler publish
-
-.PHONY: generate
-generate:
-	go generate ./...
+deploy:
+	wrangler pages publish ./pages --project-name=zztkm-bbs
 
 .PHONY: create-db
 create-db:
