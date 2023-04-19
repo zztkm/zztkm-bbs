@@ -6,13 +6,10 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api')
+      const res = await fetch('/api/hello')
       console.log(res.status)
-      console.log(res.body)
       const data = await res.json()
-      console.log(data)
       setMessage(data.message)
-      console.log("end fetch")
     }
     fetchData()
   }, [])

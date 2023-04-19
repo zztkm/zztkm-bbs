@@ -1,6 +1,6 @@
 .PHONY: dev
 dev:
-	wrangler pages dev --local
+	npx pnpm run dev
 
 .PHONY: build
 build:

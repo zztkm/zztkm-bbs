@@ -14,10 +14,12 @@ const load = WebAssembly.instantiate(mod, go.importObject).then((instance) => {
   return instance;
 });
 
-export default {
-  async fetch(req, env, ctx) {
-    await load;
-    await readyPromise;
-    return handleRequest(req, { env, ctx });
-  }
+export const onRequest = async (ctx) => {
+  await load;
+  await readyPromise;
+  const {
+    request,
+    env,
+  } = ctx;
+  return handleRequest(request, { env, ctx });
 }
